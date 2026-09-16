@@ -1,3 +1,4 @@
+import argparse
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -5,6 +6,12 @@ from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+
+
+parser = argparse.ArgumentParser(description="Train an Iris Decision Tree classifier.")
+parser.add_argument("--test-size", type=float, default=0.2)
+parser.add_argument("--random-state", type=int, default=42)
+args = parser.parse_args()
 
 
 # Load the Iris dataset
@@ -16,12 +23,12 @@ y = iris.target
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
-    test_size=0.2,
-    random_state=42
+    test_size=args.test_size,
+    random_state=args.random_state
 )
 
 # Train the Decision Tree model
-model = DecisionTreeClassifier(random_state=42)
+model = DecisionTreeClassifier(random_state=args.random_state)
 model.fit(X_train, y_train)
 
 # Make predictions
