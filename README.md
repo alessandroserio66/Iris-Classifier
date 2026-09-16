@@ -14,6 +14,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python src/train.py --test-size 0.2 --random-state 42
 ```
+
 ## Project structure
 
 ```text
@@ -26,11 +27,12 @@ iris-classifier/
 ├── tests/
 │   └── test_train.py # basic pytest
 ├── outputs/ # created automatically (model & figures)
-│├── .gitignore
+├── .gitignore
 ├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
+
 ## Tests
 
 Run the tests with:
