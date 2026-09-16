@@ -32,11 +32,3 @@ iris-classifier/
 ├── README.md
 └── requirements.txt
 ```
-
-## Tests
-
-Run the tests with:
-
-```bash
-pytest
-```
