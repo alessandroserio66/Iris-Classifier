@@ -2,6 +2,7 @@ import argparse
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+import joblib
 from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 from sklearn.model_selection import train_test_split
@@ -41,6 +42,9 @@ print(f"Accuracy: {accuracy:.2f}")
 # Create the outputs folder programmatically
 output_dir = Path("outputs")
 output_dir.mkdir(parents=True, exist_ok=True)
+
+# Save the trained model
+joblib.dump(model, output_dir / "model.joblib")
 
 # Create and save the confusion matrix
 cm = confusion_matrix(y_test, y_pred)
